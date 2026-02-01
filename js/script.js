@@ -22,5 +22,6 @@ noBtn.addEventListener("mouseenter", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-  alert("Yayyy 💖 I knew it!");
+  alert("Yayyy 💖 Let’s go on a date Tonight.");
 });
+
