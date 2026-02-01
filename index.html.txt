@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffe6eb;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 60px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #e91e63;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: absolute;
+    }
+
+    #yes {
+      background: #e91e63;
+      color: white;
+      left: 20px;
+      top: 40px;
+    }
+
+    #no {
+      background: #555;
+      color: white;
+      right: 20px;
+      top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div class="buttons">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+
+    // YES button grows when mouse is near
+    yesBtn.addEventListener("mouseenter", () => {
+      yesBtn.style.transform = "scale(3)";
+    });
+
+    yesBtn.addEventListener("mouseleave", () => {
+      yesBtn.style.transform = "scale(1)";
+    });
+
+    // NO button escapes when mouse comes near
+    noBtn.addEventListener("mouseenter", () => {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.position = "fixed";
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+
+    // Optional: cute alert on YES click
+    yesBtn.addEventListener("click", () => {
+      alert("Yayyy 💖 I knew it!");
+    });
+  </script>
+
+</body>
+</html>
